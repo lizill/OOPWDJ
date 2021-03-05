@@ -10,12 +10,13 @@ import java.io.*;
 public class AnimationBasic extends JPanel implements ActionListener {
 
 	private static final int WIDTH = 1280, HEIGHT = 720;
+	private static final int SPEED = 4;
 	private BufferedImage image;
 	private Timer timer;
 	private int x, y;
 	private int drecX = 1;
 	private int drecY = -1;
-	private final int START_X = 0, START_Y = 200;
+	private final int START_X = 580, START_Y = 260;
 	
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
@@ -32,7 +33,7 @@ public class AnimationBasic extends JPanel implements ActionListener {
 		// 이미지 파일을 읽어서 image 객체로 생성
 		// 20ms 마다 이벤트를 발생시키는 timer 객체를 생성하고 timer를 start 시킴
 		
-		File file = new File("images/ship.png"); // 119, 200
+		File file = new File("images/ship.png"); // 이미지 크기 119, 200
 		try {
 			image = ImageIO.read(file);
 		} catch(IOException e) {
@@ -59,22 +60,15 @@ public class AnimationBasic extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		// x, y 좌표 변경
 		
-//		if(x > WIDTH) {
-//			x = START_X;
-//			y = START_Y;
-//		}
-		
-		if(y < 0) {
-			drecX *= 1;
+		if(y < 0 || y+200+40 > HEIGHT) { // 윗쪽 벽 충돌, 아랫쪽 벽 충돌
 			drecY *= -1;
 		}
-		if(y-200 > HEIGHT) {
-			drecX *= 1;
-			drecY *= -1;
+		else if(x < 0 || x+119+16 > WIDTH) { // 왼쪽 벽 충돌, 오른쪽 벽 충돌
+			drecX *= -1;
 		}
 		
-		x = x + 1*drecX;
-		y = y + 1*drecY;
+		x += SPEED*drecX;
+		y += SPEED*drecY;
 		
 		repaint();
 	}
