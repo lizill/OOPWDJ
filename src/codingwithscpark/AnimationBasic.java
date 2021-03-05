@@ -14,8 +14,8 @@ public class AnimationBasic extends JPanel implements ActionListener {
 	private BufferedImage image;
 	private Timer timer;
 	private int x, y;
-	private int drecX = 1;
-	private int drecY = -1;
+	private int direcX = 1;
+	private int direcY = -1;
 	private final int START_X = 580, START_Y = 260;
 	
 	public static void main(String[] args) {
@@ -61,14 +61,14 @@ public class AnimationBasic extends JPanel implements ActionListener {
 		// x, y 좌표 변경
 		
 		if(y < 0 || y+200+40 > HEIGHT) { // 윗쪽 벽 충돌, 아랫쪽 벽 충돌
-			drecY *= -1;
+			direcY *= -1;
 		}
 		else if(x < 0 || x+119+16 > WIDTH) { // 왼쪽 벽 충돌, 오른쪽 벽 충돌
-			drecX *= -1;
+			direcX *= -1;
 		}
 		
-		x += SPEED*drecX;
-		y += SPEED*drecY;
+		x += SPEED*direcX;
+		y += SPEED*direcY;
 		
 		repaint();
 	}
