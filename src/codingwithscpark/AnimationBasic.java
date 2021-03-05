@@ -10,20 +10,25 @@ import java.io.*;
 public class AnimationBasic extends JPanel implements ActionListener {
 
 	private static final int WIDTH = 1280, HEIGHT = 720;
-	private static final int SPEED = 4;
-	private BufferedImage image;
-	private Timer timer;
+
 	private int x, y;
 	private int direcX = 1;
 	private int direcY = -1;
+	
 	private final int START_X = 580, START_Y = 260;
+	private final int SPEED = 4;
+	
+	private BufferedImage image;
+	private Timer timer;
 	
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
+		
 		frame.add(new AnimationBasic());
 		frame.setTitle("애니메이션 테스트");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(WIDTH, HEIGHT);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
 		new AnimationBasic();
