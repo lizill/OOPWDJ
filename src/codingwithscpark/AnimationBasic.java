@@ -38,7 +38,7 @@ public class AnimationBasic extends JPanel implements ActionListener {
 		// 이미지 파일을 읽어서 image 객체로 생성
 		// 20ms 마다 이벤트를 발생시키는 timer 객체를 생성하고 timer를 start 시킴
 		
-		File file = new File("images/ship.png"); // 이미지 크기 119, 200
+		File file = new File("images/ship.png");
 		try {
 			image = ImageIO.read(file);
 		} catch(IOException e) {
@@ -62,13 +62,13 @@ public class AnimationBasic extends JPanel implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		// x, y 좌표 변경
 		
-		if(y < 0 || y+200+40 > HEIGHT) { // 윗쪽 벽 충돌, 아랫쪽 벽 충돌
+		if(y < 0 || y+image.getHeight()+40 > HEIGHT) { // 윗쪽 벽 충돌, 아랫쪽 벽 충돌
 			direcY *= -1;
 		}
-		else if(x < 0 || x+119+16 > WIDTH) { // 왼쪽 벽 충돌, 오른쪽 벽 충돌
+		else if(x < 0 || x+image.getWidth()+16 > WIDTH) { // 왼쪽 벽 충돌, 오른쪽 벽 충돌
 			direcX *= -1;
 		}
 		
