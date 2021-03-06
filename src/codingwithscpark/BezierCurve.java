@@ -25,7 +25,7 @@ public class BezierCurve extends JFrame implements MouseListener, MouseMotionLis
 	class BezierPanel extends JPanel {
 		@Override
 		public void paintComponent(Graphics g) {
-			// xs, ysÀÇ ÁÂÇ¥¸¦ ÀÌ¿ëÇØ¼­ º£Áö¾î °î¼±À» ±×¸°´Ù.
+			// xs, ysì˜ ì¢Œí‘œë¥¼ ì´ìš©í•´ì„œ ë² ì§€ì–´ ê³¡ì„ ì„ ê·¸ë¦°ë‹¤.
 			
 			Graphics2D g2 = (Graphics2D) g;
 			g2.setColor(Color.blue);
@@ -47,7 +47,7 @@ public class BezierCurve extends JFrame implements MouseListener, MouseMotionLis
 		this.setSize(600, 400);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("º£Áö¾î Ä¿ºê µ¥¸ğ");
+		this.setTitle("ë² ì§€ì–´ ì»¤ë¸Œ ë°ëª¨");
 		
 		drawPanel = new BezierPanel();
 		drawPanel.addMouseListener(this);
@@ -61,8 +61,8 @@ public class BezierCurve extends JFrame implements MouseListener, MouseMotionLis
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		// ¼±ÅÃµÈ Á¡ÀÌ ÀÖ´ÂÁö º¸°í, Áï dragIndex°¡ -1ÀÌ ¾Æ´ÑÁö º¸°í
-		// ¾Æ´Ï¶ó¸é ¼±ÅÃµÈ Á¡ÀÇ x, y ÁÂÇ¥¸¦ º¯°æÇÑ´Ù.
+		// ì„ íƒëœ ì ì´ ìˆëŠ”ì§€ ë³´ê³ , ì¦‰ dragIndexê°€ -1ì´ ì•„ë‹Œì§€ ë³´ê³ 
+		// ì•„ë‹ˆë¼ë©´ ì„ íƒëœ ì ì˜ x, y ì¢Œí‘œë¥¼ ë³€ê²½í•œë‹¤.
 		
 		if(dragIndex != -1) {
 			xs[dragIndex] = e.getX();
@@ -75,7 +75,7 @@ public class BezierCurve extends JFrame implements MouseListener, MouseMotionLis
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// ³× °³ÀÇ Á¡ Áß¿¡¼­ ¾î¶² Á¡ÀÌ ¼±ÅÃµÇ¾ú´ÂÁö¸¦ Ã¼Å©
+		// ë„¤ ê°œì˜ ì  ì¤‘ì—ì„œ ì–´ë–¤ ì ì´ ì„ íƒë˜ì—ˆëŠ”ì§€ë¥¼ ì²´í¬
 		dragIndex = -1; // 1, 2, 3
 
 		for(int i=0; i<4; i++) {

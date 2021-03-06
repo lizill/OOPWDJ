@@ -18,13 +18,13 @@ public class SecondaryFunction extends JFrame implements ActionListener {
 	
 	public SecondaryFunction() {
 		this.setSize(600, 700);
-		this.setTitle("2Â÷ÇÔ¼ö ±×¸®±â");
+		this.setTitle("2Ã‚Ã·Ã‡Ã”Â¼Ã¶ Â±Ã—Â¸Â®Â±Ã¢");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JTextField fieldA = new JTextField(10);
 		JTextField fieldB = new JTextField(10);
 		JTextField fieldC = new JTextField(10);
-		JButton button = new JButton("±×¸®±â");
+		JButton button = new JButton("Â±Ã—Â¸Â®Â±Ã¢");
 		
 		JPanel textPanel = new JPanel();
 		textPanel.add(fieldA);
