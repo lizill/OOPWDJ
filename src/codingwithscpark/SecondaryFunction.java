@@ -16,15 +16,19 @@ import javax.swing.JTextField;
 
 public class SecondaryFunction extends JFrame implements ActionListener {
 	
+	JTextField fieldA = new JTextField(10);
+	JTextField fieldB = new JTextField(10);
+	JTextField fieldC = new JTextField(10);
+	
+	int A = 1, B = 0, C = 0;
+	
 	public SecondaryFunction() {
 		this.setSize(600, 700);
-		this.setTitle("2Â÷ÇÔ¼ö ±×¸®±â");
+		this.setTitle("2차함수 그리기");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JTextField fieldA = new JTextField(10);
-		JTextField fieldB = new JTextField(10);
-		JTextField fieldC = new JTextField(10);
-		JButton button = new JButton("±×¸®±â");
+		JButton button = new JButton("그리기");
+		button.addActionListener(this);
 		
 		JPanel textPanel = new JPanel();
 		textPanel.add(fieldA);
@@ -40,10 +44,6 @@ public class SecondaryFunction extends JFrame implements ActionListener {
 
 	class FunctionPanel extends JPanel {
 		
-		public FunctionPanel() {
-			
-		}
-		
 		@Override
 		public void paintComponent(Graphics g) {
 			Graphics2D g2 = (Graphics2D) g;
@@ -52,15 +52,21 @@ public class SecondaryFunction extends JFrame implements ActionListener {
 			g2.drawLine(0, 300, 600, 300);
 			
 			g2.setColor(Color.red);
-			for(int i=0; i<300; i++) {
-				g2.drawLine(300+i, 300+i*i, 300+i, 300-(i+1)*(i+1));
+			for(int i=-20; i<20; i++) {
+				int x = i;
+				int y = A * x * x - B * x + C;
+				g2.fillOval(300 + (x-2), 300 - (y-2), 4, 4);
 			}
 		}
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		A = Integer.parseInt(fieldA.getText());
+		B = Integer.parseInt(fieldB.getText());
+		C = Integer.parseInt(fieldC.getText());
 		
+		repaint();
 	}
 	
 	public static void main(String[] args) {
