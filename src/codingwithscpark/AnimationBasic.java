@@ -25,7 +25,7 @@ public class AnimationBasic extends JPanel implements ActionListener {
 		JFrame frame = new JFrame();
 		
 		frame.add(new AnimationBasic());
-		frame.setTitle("¾Ö´Ï¸ŞÀÌ¼Ç Å×½ºÆ®");
+		frame.setTitle("ì• ë‹ˆë©”ì´ì…˜ í…ŒìŠ¤íŠ¸");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setLocationRelativeTo(null);
@@ -35,16 +35,16 @@ public class AnimationBasic extends JPanel implements ActionListener {
 	}
 	
 	public AnimationBasic() {
-		// ÀÌ¹ÌÁö ÆÄÀÏÀ» ÀĞ¾î¼­ image °´Ã¼·Î »ı¼º
-		// 20ms ¸¶´Ù ÀÌº¥Æ®¸¦ ¹ß»ı½ÃÅ°´Â timer °´Ã¼¸¦ »ı¼ºÇÏ°í timer¸¦ start ½ÃÅ´
+		// ì´ë¯¸ì§€ íŒŒì¼ì„ ì½ì–´ì„œ image ê°ì²´ë¡œ ìƒì„±
+		// 20ms ë§ˆë‹¤ ì´ë²¤íŠ¸ë¥¼ ë°œìƒì‹œí‚¤ëŠ” timer ê°ì²´ë¥¼ ìƒì„±í•˜ê³  timerë¥¼ start ì‹œí‚´
 		
-		File file = new File("images/ship.png"); // ÀÌ¹ÌÁö Å©±â 119, 200
+		File file = new File("images/ship.png");
 		try {
 			image = ImageIO.read(file);
 		} catch(IOException e) {
 			e.printStackTrace();
 			System.exit(1);
-			// ÀÌ¹ÌÁö ÀĞ±â ½ÇÆĞ½Ã ÇÁ·Î±×·¥ Á¾·á
+			// ì´ë¯¸ì§€ ì½ê¸° ì‹¤íŒ¨ì‹œ í”„ë¡œê·¸ë¨ ì¢…ë£Œ
 		}
 		
 		x = START_X;
@@ -57,18 +57,18 @@ public class AnimationBasic extends JPanel implements ActionListener {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		// x, y ÁÂÇ¥¿¡ ÀÌ¹ÌÁö¸¦ ±×¸°´Ù.
+		// x, y ì¢Œí‘œì— ì´ë¯¸ì§€ë¥¼ ê·¸ë¦°ë‹¤.
 		g.drawImage(image, x, y, this);
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// x, y ÁÂÇ¥ º¯°æ
+	public void actionPerformed(ActionEvent e) {
+		// x, y ì¢Œí‘œ ë³€ê²½
 		
-		if(y < 0 || y+200+40 > HEIGHT) { // À­ÂÊ º® Ãæµ¹, ¾Æ·§ÂÊ º® Ãæµ¹
+		if(y < 0 || y+image.getHeight()+40 > HEIGHT) { // ìœ—ìª½ ë²½ ì¶©ëŒ, ì•„ë«ìª½ ë²½ ì¶©ëŒ
 			direcY *= -1;
 		}
-		else if(x < 0 || x+119+16 > WIDTH) { // ¿ŞÂÊ º® Ãæµ¹, ¿À¸¥ÂÊ º® Ãæµ¹
+		else if(x < 0 || x+image.getWidth()+16 > WIDTH) { // ì™¼ìª½ ë²½ ì¶©ëŒ, ì˜¤ë¥¸ìª½ ë²½ ì¶©ëŒ
 			direcX *= -1;
 		}
 		
