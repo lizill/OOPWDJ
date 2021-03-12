@@ -1,10 +1,14 @@
 package codingwithscpark_ch12;
 
 import java.awt.BorderLayout;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class ComboBoxDemo extends JFrame implements ActionListener {
 
@@ -35,6 +39,9 @@ public class ComboBoxDemo extends JFrame implements ActionListener {
 		label.setIcon(icon);
 		if(!file.isFile()) {
 			System.out.println("이미지가 없습니다.");
+		}
+		for(int i=0; i<fruitList.getItemCount(); i++) {
+			fruitList.getItemAt(i);
 			fruitList.addItem(name);
 		}
 	}
