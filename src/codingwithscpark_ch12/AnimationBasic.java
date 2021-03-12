@@ -1,4 +1,4 @@
-package codingwithscpark;
+package codingwithscpark_ch12;
 
 import javax.swing.*;
 import java.awt.*;

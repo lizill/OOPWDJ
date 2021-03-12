@@ -1,4 +1,4 @@
-package codingwithscpark;
+package codingwithscpark_ch12;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
