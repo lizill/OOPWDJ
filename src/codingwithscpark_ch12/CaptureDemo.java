@@ -4,12 +4,12 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 
-public class Capture extends JPanel {
+public class CaptureDemo extends JPanel {
 	
 	private Image img = null;
 	private JFrame frame;
 	
-	public Capture() {
+	public CaptureDemo() {
 		frame = new JFrame();
 		frame.setSize(1280, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,6 +47,6 @@ public class Capture extends JPanel {
 	}
 
 	public static void main(String[] args) {
-		new Capture();
+		new CaptureDemo();
 	}
 }
