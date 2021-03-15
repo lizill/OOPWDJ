@@ -21,8 +21,6 @@ public class Translator extends JFrame {
 		this.setSize(600, 400);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("파파고 번역기");
-
-		PapagoAPI ppA = new PapagoAPI();
 		
 		JPanel textAreaPanel = new JPanel();
 		textAreaPanel.setLayout(new GridLayout(1, 2 , 20, 0));
@@ -39,12 +37,12 @@ public class Translator extends JFrame {
 		textAreaPanel.add(textOutputArea);
 		
 		JPanel buttonPanel = new JPanel();
-		
+
 		outputButton = new JButton("번역하기");
 		outputButton.addActionListener((e) -> {
 			if(!textInputArea.getText().strip().isEmpty()) {
-				ppA.setText(textInputArea.getText());
-				textOutputArea.setText(ppA.getText().toString());
+				JSONpasing pasing = new JSONpasing();
+				textOutputArea.setText(pasing.getString(textInputArea.getText()));
 			}
 		});
 		buttonPanel.add(outputButton);

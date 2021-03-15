@@ -9,9 +9,8 @@ import java.net.URLEncoder;
 public class PapagoAPI {
 	
 	private StringBuffer response = new StringBuffer();
-    private String str;
 	
-	public StringBuffer getText() {
+	public StringBuffer getText(String str) {
 		String clientId = "4ekcJpW2NjSUw6NVzDv9";
 	    String clientSecret = "wgeNdCppaU";
 	    try {
@@ -42,16 +41,10 @@ public class PapagoAPI {
 	            response.append(inputLine);
 	        }
 	        br.close();
-	        response.delete(0, response.indexOf("translatedText")+17);
-	        response.delete(response.indexOf(",\"engineType\":")-1, response.length());
 	    } catch (Exception e) {
 	        System.out.println(e);
 	    }
 	    
 		return response;
-	}
-	
-	public void setText(String text) {
-		this.str = text;
 	}
 }
