@@ -2,17 +2,30 @@ package codingwithscpark_ch12;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Properties;
+
 public class PapagoAPI {
 	
 	private StringBuffer response = new StringBuffer();
 	
 	public StringBuffer getText(String str) {
-		String clientId = "4ekcJpW2NjSUw6NVzDv9";
-	    String clientSecret = "wgeNdCppaU";
+		
+		Properties p = new Properties();
+		
+		try {
+			p.load(new FileInputStream("./config/myconfig.properties"));
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		String clientId = p.getProperty("CLIENT_ID");
+	    String clientSecret = p.getProperty("CLIENT_SECRET");
 	    try {
 	        String text = URLEncoder.encode(str, "UTF-8");
 	        String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
