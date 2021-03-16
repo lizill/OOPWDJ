@@ -152,7 +152,6 @@ public class PongGame extends JPanel implements ActionListener, KeyListener {
 			pAy += P_SPEED;
 			if(pAy+P_HEIGHT > HEIGHT-40+P_SPEED) pAy -= P_SPEED;
 		}
-		
 	}
 
 	@Override
